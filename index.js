@@ -11,7 +11,7 @@ const cors=require("cors");
 
 dotenv.config();
 
-const path = require("path");
+
 
 const port=process.env.PORT || 5000;
 
@@ -38,11 +38,6 @@ app.use("/api/checkout",stripeRoute);
 
 app.all('*', (req, _) => console.log(req.path))
 
-app.get("/", (req, res) => {
-    app.use(express.static(path.resolve(__dirname, "frontend", "build")));
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
-    });
-    
 
 app.listen(port,()=>{
     console.log("server connected", port);
